@@ -15,7 +15,7 @@ plugins {
 
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.19.2 v1.2'
+version = '1.19.2 v1.3'
 group = 'net.mazee.cozyfoods'
 archivesBaseName = 'cozyfoods'
 
@@ -201,12 +201,12 @@ dependencies {
 
     implementation fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
 
-    //implementation fg.deobf("curse.maven:xaeros-world-map-317780:4685552")
-    //implementation fg.deobf("curse.maven:xaeros-minimap-263420:4685459")
+    implementation fg.deobf("curse.maven:xaeros-world-map-317780:4685552")
+    implementation fg.deobf("curse.maven:xaeros-minimap-263420:4685459")
 
     //implementation fg.deobf("curse.maven:pams-harvestcraft-2-trees-365460:4480280")
 
-    //implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
+    implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
 
 
     // For more info...

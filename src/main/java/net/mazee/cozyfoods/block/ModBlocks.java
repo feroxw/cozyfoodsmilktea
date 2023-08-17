@@ -243,37 +243,41 @@ public class ModBlocks {
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR)), ModCreativeModeTab.CozyFoodsTab);
 
 
-    public static final RegistryObject<Block> MENU_STANDING = BLOCKS.register("menu_standing",
+    public static final RegistryObject<Block> MENU_STANDING = registerBlock("menu_standing",
             () -> new MenuStandBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.2F, 6.0F)
                     .sound(SoundType.WOOD)
-                    .noOcclusion()));
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> MENU_WIDE = BLOCKS.register("menu_wide",
+    public static final RegistryObject<Block> MENU_WIDE = registerBlock("menu_wide",
             () -> new WideBoardBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.2F, 6.0F)
                     .sound(SoundType.WOOD)
-                    .noOcclusion()));
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> CASH_REGISTER = BLOCKS.register("cash_register",
+    public static final RegistryObject<Block> CASH_REGISTER = registerBlock("cash_register",
             () -> new CashRegisterBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(0.2F, 6.0F)
                     .sound(SoundType.METAL)
-                    .noOcclusion()));
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> LYCHEE_COUNTER = BLOCKS.register("lychee_counter",
+    public static final RegistryObject<Block> LYCHEE_COUNTER = registerBlock("lychee_counter",
             () -> new HorizontalFacingBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.6F, 6.0F)
                     .sound(SoundType.WOOD)
-                    .noOcclusion()) {
-            });
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> LYCHEE_TABLE = BLOCKS.register("lychee_table",
+    public static final RegistryObject<Block> LYCHEE_TABLE = registerBlock("lychee_table",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(0.6F, 6.0F)
                     .sound(SoundType.STONE)
-                    .noOcclusion()) {
-            });
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> LYCHEE_CABINET = registerBlock("lychee_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(0.5F, 6.0F)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
     public static final RegistryObject<Block> SPINNER = registerBlock("spinner",
             () -> new SpinnerBlock(BlockBehaviour.Properties.of(Material.METAL)
@@ -287,11 +291,6 @@ public class ModBlocks {
                     .sound(SoundType.GLASS)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> LYCHEE_CABINET = BLOCKS.register("lychee_cabinet",
-            () -> new CabinetBlock(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(0.5F, 6.0F)
-                    .sound(SoundType.WOOD)
-                    .noOcclusion()));
 
     public static final RegistryObject<Block> LYCHEE_HANGING = BLOCKS.register("lychee_hanging",
             () -> new HangingFruitBlock(BlockBehaviour.Properties.copy(Blocks.COCOA)
