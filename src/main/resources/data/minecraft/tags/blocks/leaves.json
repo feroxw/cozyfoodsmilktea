@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cozyfoods:mango_leaves",
+    "cozyfoods:lychee_leaves",
+    "cozyfoods:flowering_lychee_leaves",
+    "cozyfoods:flowering_mango_leaves"
+  ]
+}

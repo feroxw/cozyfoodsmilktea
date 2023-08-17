@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "cozyfoods:mango_log",
+    "cozyfoods:stripped_mango_log",
+    "cozyfoods:mango_planks",
+    "cozyfoods:lychee_log",
+    "cozyfoods:stripped_lychee_log",
+    "cozyfoods:lychee_planks",
+    "cozyfoods:lychee_button",
+    "cozyfoods:lychee_door",
+    "cozyfoods:lychee_fence",
+    "cozyfoods:lychee_fence_gate",
+    "cozyfoods:lychee_pressure_plate",
+    "cozyfoods:lychee_slab",
+    "cozyfoods:lychee_stairs",
+    "cozyfoods:lychee_trapdoor",
+    "cozyfoods:mango_button",
+    "cozyfoods:mango_door",
+    "cozyfoods:mango_fence",
+    "cozyfoods:mango_fence_gate",
+    "cozyfoods:mango_pressure_plate",
+    "cozyfoods:mango_slab",
+    "cozyfoods:mango_stairs",
+    "cozyfoods:mango_trapdoor",
+    "cozyfoods:lychee_counter",
+    "cozyfoods:lychee_table",
+    "cozyfoods:lychee_cabinet"
+  ]
+}

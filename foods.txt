@@ -1,0 +1,123 @@
+bubble tea - milk, black tea, spices??, sugar, ender pearls -->SHAKE
+
+Base ingredients for milk teas and bubble teas = Bucket of Milk + #minecraft:ice + sugar
+Matcha = green tea with crafting table or mill??
+Lychee = tree
+Jasmine = flowering bush or vine
+Coconut = from palm trees??
+Mango = tree
+Honeydew = melon??
+MILK TEAS
+-Chorus Fruit - Makes you levitate and instant health
+-Mango - Slow Falling
+-banana
+-strawberry
+-honey
+-Thai (needs spices not mango) - Higher jumping
+-long island iced tea
+-brown sugar
+-honeydew
+-Taro - Makes you tiny for 8:00
+-blueberry
+-pineapple
+-matcha
+-Lychee - Makes you faster
+-Coconut
+-almond
+-lavendar
+-peach
+-yakult
+-plain
+BUBBLE TEAS
+
+
+SMOOTHIES
+-
+
+CASSAVA CAKE
+
+RICE DISHES
+mango and sticky rice
+fried rice
+sushi
+
+egg roll
+
+THAI FOOD
+
+MEXICAN FOOD
+avocado
+guacamole
+tortilla
+taco
+burrito
+enchilidas
+beans
+yellow rice
+chimichanga
+fajitas
+tamales
+
+<recipetype:farmersdelight:cooking>.remove(<item:farmersdelight:cooked_rice>);
+
+[net.minecraft.world.item.crafting.Ingredient@40f71ced, net.minecraft.world.item.crafting.Ingredient@11947641, net.minecraft.world.item.crafting.Ingredient@3347989e, net.minecraft.world.item.crafting.Ingredient@63d8a443]
+[64 mango, 1 ender_pearl, 64 ice, 64 sugar]
+Information!
+4
+
+java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
+	at io.netty.util.internal.ReflectionUtil.trySetAccessible(ReflectionUtil.java:31) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.internal.PlatformDependent0$5.run(PlatformDependent0.java:287) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at java.security.AccessController.doPrivileged(AccessController.java:318) ~[?:?] {}
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:281) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:294) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:88) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:34) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.AttributeKey$1.<init>(AttributeKey.java:27) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.AttributeKey.<clinit>(AttributeKey.java:27) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at net.minecraftforge.network.NetworkConstants.<clinit>(NetworkConstants.java:34) ~[forge-1.19.2-43.1.10_mapped_parchment_2022.11.06-1.19.2-recomp.jar%23182%23189!/:?] {re:classloading}
+	at net.minecraftforge.common.ForgeMod.<init>(ForgeMod.java:435) ~[forge-1.19.2-43.1.10_mapped_parchment_2022.11.06-1.19.2-recomp.jar%23182%23189!/:?] {re:mixin,re:classloading}
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?] {}
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?] {}
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?] {}
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:68) ~[javafmllanguage-1.19.2-43.1.10.jar%23184!/:?] {}
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$10(ModContainer.java:121) ~[fmlcore-1.19.2-43.1.10.jar%23187!/:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) [?:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) [?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) [?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) [?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) [?:?] {}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) [?:?] {}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) [?:?] {}
+[05:24:50] [modloading-worker-0/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.Bits.unaligned: available, true
+[05:24:50] [modloading-worker-0/DEBUG] [io.ne.ut.in.PlatformDependent0/]: jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$7 (in module io.netty.common) cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to module io.netty.common
+	at jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:392) ~[?:?] {}
+	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:674) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:560) ~[?:?] {}
+	at io.netty.util.internal.PlatformDependent0$7.run(PlatformDependent0.java:409) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at java.security.AccessController.doPrivileged(AccessController.java:318) ~[?:?] {}
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:400) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:294) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:88) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:34) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.AttributeKey$1.<init>(AttributeKey.java:27) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at io.netty.util.AttributeKey.<clinit>(AttributeKey.java:27) ~[netty-common-4.1.77.Final.jar%23144!/:4.1.77.Final] {}
+	at net.minecraftforge.network.NetworkConstants.<clinit>(NetworkConstants.java:34) ~[forge-1.19.2-43.1.10_mapped_parchment_2022.11.06-1.19.2-recomp.jar%23182%23189!/:?] {re:classloading}
+	at net.minecraftforge.common.ForgeMod.<init>(ForgeMod.java:435) ~[forge-1.19.2-43.1.10_mapped_parchment_2022.11.06-1.19.2-recomp.jar%23182%23189!/:?] {re:mixin,re:classloading}
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?] {}
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?] {}
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?] {}
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:68) ~[javafmllanguage-1.19.2-43.1.10.jar%23184!/:?] {}
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$10(ModContainer.java:121) ~[fmlcore-1.19.2-43.1.10.jar%23187!/:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) [?:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) [?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) [?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) [?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) [?:?] {}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) [?:?] {}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) [?:?] {}

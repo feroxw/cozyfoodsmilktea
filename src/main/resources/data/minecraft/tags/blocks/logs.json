@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cozyfoods:mango_log",
+    "cozyfoods:stripped_mango_log",
+    "cozyfoods:lychee_log",
+    "cozyfoods:stripped_lychee_log"
+  ]
+}

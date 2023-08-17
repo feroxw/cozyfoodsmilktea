@@ -1,0 +1,10 @@
+{
+  "parent": "cozyfoods:block/decorative_blender",
+  "display": {
+    "gui": {
+      "rotation": [31, 142, 0],
+      "translation": [0.1, 1.2, 0.5],
+      "scale": [0.75, 0.75, 0.75]
+    }
+  }
+}

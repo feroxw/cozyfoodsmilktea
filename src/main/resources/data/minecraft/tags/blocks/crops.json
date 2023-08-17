@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "cozyfoods:honeydew_crop",
+    "cozyfoods:cassava_crop",
+    "cozyfoods:taro_crop"
+  ]
+}

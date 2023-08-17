@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "cozyfoods:item/honeydew_milk_tea"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "pulling": 1
+      },
+      "model": "item/bow_pulling_0"
+    }
+  ]
+}

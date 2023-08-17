@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cozyfoods:block/mango_slab"
+    },
+    "type=double": {
+      "model": "cozyfoods:block/mango_planks"
+    },
+    "type=top": {
+      "model": "cozyfoods:block/mango_slab_top"
+    }
+  }
+}
