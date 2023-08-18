@@ -1,11 +1,11 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "minecraft:block/copper",
+		"0": "minecraft:block/copper_block",
 		"4": "cozyfoods:block/cash_register_base",
 		"5": "cozyfoods:block/cash_register_main",
 		"6": "cozyfoods:block/cash_register_readout",
-		"particle": "copper"
+		"particle": "minecraft:block/copper_block"
 	},
 	"elements": [
 		{

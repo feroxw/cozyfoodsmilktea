@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "cozyfoods:block/lychee_planks",
 		"1": "cozyfoods:block/lychee_counter_surface",
-		"particle": "lychee_planks"
+		"particle": "cozyfoods:block/lychee_planks"
 	},
 	"elements": [
 		{

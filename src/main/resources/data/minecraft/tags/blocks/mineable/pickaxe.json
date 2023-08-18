@@ -1,5 +1,7 @@
 {
   "values": [
-    "cozyfoods:spinner"
+    "cozyfoods:spinner",
+    "cozyfoods:lychee_table",
+    "cozyfoods:lychee_table_fancy"
   ]
 }

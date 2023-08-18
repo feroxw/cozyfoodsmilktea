@@ -1,5 +1,6 @@
 {
   "replace": false,
+  "optional": true,
   "values": [
     "cozyfoods:mango_log",
     "cozyfoods:stripped_mango_log",
@@ -25,6 +26,9 @@
     "cozyfoods:mango_trapdoor",
     "cozyfoods:lychee_counter",
     "cozyfoods:lychee_table",
-    "cozyfoods:lychee_cabinet"
+    "cozyfoods:lychee_cabinet",
+    "cozyfoods:mango_shelf",
+    "cozyfoods:dish_rack",
+    "cozyfoods:lychee_table_fancy"
   ]
 }

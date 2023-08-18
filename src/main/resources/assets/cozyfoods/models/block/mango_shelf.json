@@ -4,7 +4,7 @@
 		"2": "cozyfoods:block/mango_shelf_glass",
 		"3": "cozyfoods:block/mango_shelf_main",
 		"4": "cozyfoods:item/plate",
-		"particle": "cozyfoods:item/plate"
+		"particle": "cozyfoods:block/mango_shelf_main"
 	},
 	"render_type": "cutout",
 	"elements": [
@@ -167,7 +167,23 @@
 			}
 		}
 	],
-	"display": {},
+	"display": {
+		"gui": {
+			"rotation": [30,225,0],
+			"translation": [0,0,0],
+			"scale": [0.625,0.625,0.625]
+		},
+		"thirdperson_righthand": {
+			"rotation": [75,45,0],
+			"translation": [0,2.5,0],
+			"scale": [0.4,0.4,0.4]
+		},
+		"firstperson_righthand": {
+			"rotation": [0,45,0],
+			"translation": [0,0,0],
+			"scale": [0.4,0.4,0.4]
+		}
+	},
 	"groups": [
 		{
 			"name": "lower_shelf",
