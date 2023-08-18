@@ -3,6 +3,7 @@ package net.mazee.cozyfoods.item;
 import net.mazee.cozyfoods.CozyFoods;
 import net.mazee.cozyfoods.block.ModBlocks;
 import net.mazee.cozyfoods.effect.ModMobEffects;
+import net.mazee.cozyfoods.item.custom.CafeArmorItem;
 import net.mazee.cozyfoods.item.custom.DrinkItem;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.color.item.ItemColors;
@@ -10,6 +11,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
@@ -70,6 +72,9 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
 
     public static final RegistryObject<Item> SPOON = ITEMS.register("spoon",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
+
+    public static final RegistryObject<Item> PLATE = ITEMS.register("plate",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
 
     public static final RegistryObject<Item> LYCHEE_MILK_TEA = ITEMS.register("lychee_milk_tea",
@@ -170,7 +175,8 @@ public class ModItems {
                             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20*30), 1.0F)
                             .build())));
 
-
+    public static final RegistryObject<Item> CAFE_APRON = ITEMS.register("cafe_apron",
+            () -> new CafeArmorItem(ArmorMaterials.LEATHER, EquipmentSlot.CHEST, (new Item.Properties()).tab(ModCreativeModeTab.CozyFoodsTab)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

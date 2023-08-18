@@ -22,10 +22,10 @@ public class CashRegisterBlock extends HorizontalDirectionalBlock {
     private static final VoxelShape SHAPE =
             Block.box(1, 0, 1, 15, 14, 14);
 
-    protected static final VoxelShape NORTH_AABB = Block.box(1, 0, 1, 15, 14, 15);
-    protected static final VoxelShape SOUTH_AABB = Block.box(1, 0, 1, 15, 14, 15);
-    protected static final VoxelShape WEST_AABB = Block.box(1, 0, 1, 15, 14, 15);
-    protected static final VoxelShape EAST_AABB = Block.box(1, 0, 1, 15, 14, 15);
+    protected static final VoxelShape NORTH_AABB = Block.box(2, 0, 2, 14, 10, 14);
+    protected static final VoxelShape SOUTH_AABB = Block.box(2, 0, 2, 14, 10, 14);
+    protected static final VoxelShape WEST_AABB = Block.box(2, 0, 2, 14, 10, 14);
+    protected static final VoxelShape EAST_AABB = Block.box(2, 0, 2, 14, 10, 14);
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
