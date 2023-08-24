@@ -279,6 +279,12 @@ public class ModBlocks {
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
+    public static final RegistryObject<Block> MANGO_COUNTER = registerBlock("mango_counter",
+            () -> new HorizontalFacingBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(0.6F, 6.0F)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
     public static final RegistryObject<Block> MANGO_TABLE = registerBlock("mango_table",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.6F, 6.0F)

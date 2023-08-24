@@ -25,6 +25,7 @@
   "item.cozyfoods.jasmine_bubble_tea": "Jasmine Bubble Tea",
   "item.cozyfoods.matcha_bubble_tea": "Matcha Bubble Tea",
   "item.cozyfoods.honeydew_bubble_tea": "Honeydew Bubble Tea",
+  "item.cozyfoods.cafe_apron": "Cafe Apron",
 
   "block.cozyfoods.mango_log": "Mango Log",
   "block.cozyfoods.stripped_mango_log": "Stripped Mango Log",
@@ -45,6 +46,8 @@
   "block.cozyfoods.honeydew": "Honeydew",
   "block.cozyfoods.honeydew_stem": "Honeydew Stem",
   "block.cozyfoods.attached_honeydew_stem": "Attached Honeydew Stem",
+  "block.cozyfoods.mango_hanging": "Mango Cluster",
+  "block.cozyfoods.lychee_hanging": "Lychee Cluster",
   
   "block.cozyfoods.lychee_slab": "Lychee Slab",
   "block.cozyfoods.lychee_stairs": "Lychee Stairs",
@@ -66,9 +69,12 @@
   "block.cozyfoods.mango_trapdoor": "Mango Trapdoor",
   "block.cozyfoods.mango_pressure_plate": "Mango Pressure Plate",
   "block.cozyfoods.mango_button": "Mango Button",
+  "block.cozyfoods.mango_table": "Mango Table",
 
   "block.cozyfoods.menu_standing": "Standing Menu",
   "block.cozyfoods.menu_wide": "Wall Menu",
+  "block.cozyfoods.dish_rack": "Dish Shelf",
+  "block.cozyfoods.cash_register": "Cash Register",
 
   "effect.cozyfoods.shrink": "Shrink",
   "effect.cozyfoods.growth": "Growth",

@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"2": "cozyfoods:block/lychee_cabinet_face_open",
-		"particle": "cozyfoods:block/lychee_planks"
+		"2": "cozyfoods:block/mango_cabinet_face",
+		"particle": "cozyfoods:block/mango_planks"
 	},
 	"elements": [
 		{
