@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "cozyfoods:block/mango_planks",
-		"1": "minecraft:block/polished_blackstone",
+		"1": "cozyfoods:block/mango_counter_surface",
 		"particle": "cozyfoods:block/mango_planks"
 	},
 	"elements": [
