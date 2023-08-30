@@ -5,6 +5,7 @@
 		"1": "cozyfoods:block/lychee_counter_surface",
 		"particle": "cozyfoods:block/lychee_planks"
 	},
+	"render_type": "cutout",
 	"elements": [
 		{
 			"name": "main",

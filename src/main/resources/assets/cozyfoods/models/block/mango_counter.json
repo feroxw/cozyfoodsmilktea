@@ -5,6 +5,7 @@
 		"1": "cozyfoods:block/mango_counter_surface",
 		"particle": "cozyfoods:block/mango_planks"
 	},
+	"render_type": "cutout",
 	"elements": [
 		{
 			"name": "main",

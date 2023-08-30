@@ -150,13 +150,24 @@ public class FruitingLeavesBlock extends LeavesBlock implements BonemealableBloc
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
 
-            if(this.isMaxAge(pState)){
-
-            }else if(pPlayer.getItemInHand(pHand).getItem() == Items.BONE_MEAL){
+            if(pPlayer.getItemInHand(pHand).getItem() == Items.BONE_MEAL){
                 pLevel.playSound(null, pPos, SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 
                 this.growCrops(pLevel, pPos, pState);
+            }else if(this.isMaxAge(pState)){
+                //break hanging and change to flowering
+                BlockPos posBelow = pPos.below(1);
+                BlockState stateBelow = pLevel.getBlockState(posBelow);
+
+                if(stateBelow.is(ModBlocks.LYCHEE_HANGING.get()) || stateBelow.is(ModBlocks.MANGO_HANGING.get())){
+                    dropResources(stateBelow, pLevel, posBelow);
+                    pLevel.removeBlock(posBelow, false);
+
+                    pLevel.setBlock(pPos, pState.setValue(AGE, 0), 2);
+                }
+
             }
+
 
         }
 

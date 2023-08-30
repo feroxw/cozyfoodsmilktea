@@ -6,6 +6,7 @@
 		"5": "cozyfoods:block/mango_planks_smooth",
 		"particle": "cozyfoods:block/mango_planks"
 	},
+	"render_type": "cutout",
 	"elements": [
 		{
 			"name": "base",

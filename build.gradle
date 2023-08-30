@@ -160,10 +160,8 @@ repositories {
     maven { //Pehkui
         url = "https://jitpack.io"
     }
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-    // flatDir {
-    //     dir 'libs'
-    // }
+
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 }
 
 dependencies {
@@ -200,6 +198,11 @@ dependencies {
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     implementation fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
+
+    //implementation fg.deobf("curse.maven:nethers-delight-496394:3971576")
+
+    implementation fg.deobf("curse.maven:geckolib-388172:4181377")
+    //implementation fg.deobf('software.bernie.geckolib:geckolib-1.18-forge:3.0.13')
 
     implementation fg.deobf("curse.maven:xaeros-world-map-317780:4685552")
     implementation fg.deobf("curse.maven:xaeros-minimap-263420:4685459")

@@ -20,8 +20,9 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<CabinetBlockEntity>> CABINET =
             BLOCK_ENTITIES.register("cabinet", () ->
                     BlockEntityType.Builder.of(CabinetBlockEntity::new,
-                            ModBlocks.LYCHEE_CABINET.get()).build(null));
-
+                            ModBlocks.LYCHEE_CABINET.get(),
+                            ModBlocks.MANGO_CABINET.get())
+                            .build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

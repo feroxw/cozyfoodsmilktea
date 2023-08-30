@@ -3,8 +3,7 @@ package net.mazee.cozyfoods.item;
 import net.mazee.cozyfoods.CozyFoods;
 import net.mazee.cozyfoods.block.ModBlocks;
 import net.mazee.cozyfoods.effect.ModMobEffects;
-import net.mazee.cozyfoods.item.custom.CafeArmorItem;
-import net.mazee.cozyfoods.item.custom.DrinkItem;
+import net.mazee.cozyfoods.item.custom.*;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -177,6 +176,22 @@ public class ModItems {
 
     public static final RegistryObject<Item> CAFE_APRON = ITEMS.register("cafe_apron",
             () -> new CafeArmorItem(ArmorMaterials.LEATHER, EquipmentSlot.CHEST, (new Item.Properties()).tab(ModCreativeModeTab.CozyFoodsTab)));
+
+    public static final RegistryObject<Item> BUNNY_EARS = ITEMS.register("bunny_ears",
+            () -> new BunnyEarsItem(ArmorMaterials.LEATHER, EquipmentSlot.HEAD, (new Item.Properties()).tab(ModCreativeModeTab.CozyFoodsTab)));
+
+    public static final RegistryObject<Item> WOLF_EARS = ITEMS.register("wolf_ears",
+            () -> new WolfEarsItem(ArmorMaterials.LEATHER, EquipmentSlot.HEAD, (new Item.Properties()).tab(ModCreativeModeTab.CozyFoodsTab)));
+
+    public static final RegistryObject<Item> BEE_EARS = ITEMS.register("bee_ears",
+            () -> new BeeEarsItem(ArmorMaterials.LEATHER, EquipmentSlot.HEAD, (new Item.Properties()).tab(ModCreativeModeTab.CozyFoodsTab)));
+
+    public static final RegistryObject<Item> CAT_EARS = ITEMS.register("cat_ears",
+            () -> new CatEarsItem(ArmorMaterials.LEATHER, EquipmentSlot.HEAD, (new Item.Properties()).tab(ModCreativeModeTab.CozyFoodsTab)));
+
+    public static final RegistryObject<Item> PANDA_EARS = ITEMS.register("panda_ears",
+            () -> new PandaEarsItem(ArmorMaterials.LEATHER, EquipmentSlot.HEAD, (new Item.Properties()).tab(ModCreativeModeTab.CozyFoodsTab)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

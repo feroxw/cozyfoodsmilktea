@@ -3,6 +3,7 @@ package net.mazee.cozyfoods;
 import com.mojang.logging.LogUtils;
 import net.mazee.cozyfoods.block.ModBlocks;
 import net.mazee.cozyfoods.block.entity.ModBlockEntities;
+import net.mazee.cozyfoods.block.entity.ModEntities;
 import net.mazee.cozyfoods.effect.ModMobEffects;
 import net.mazee.cozyfoods.item.ModItems;
 import net.mazee.cozyfoods.loot.ModLootModifiers;
@@ -47,6 +48,7 @@ public class CozyFoods
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModEntities.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
         ModTrunkPlacers.register(modEventBus);

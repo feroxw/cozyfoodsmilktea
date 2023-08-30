@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "R": {
-      "item": "minecraft:red_dye"
+      "item": "minecraft:light_blue_dye"
     },
     "#": {
       "item": "cozyfoods:lychee_planks"

@@ -267,14 +267,26 @@ public class ModBlocks {
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> LYCHEE_TABLE = registerBlock("lychee_table",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
+    public static final RegistryObject<Block> LYCHEE_CHAIR = registerBlock("lychee_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.6F, 6.0F)
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
+    public static final RegistryObject<Block> LYCHEE_TABLE = registerBlock("lychee_table",
+            () -> new TableBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(0.6F, 6.0F)
+                    .sound(SoundType.STONE)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
     public static final RegistryObject<Block> LYCHEE_TABLE_FANCY = registerBlock("lychee_table_fancy",
-            () -> new HorizontalFacingBlock(BlockBehaviour.Properties.of(Material.WOOD)
+            () -> new TableBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(0.6F, 6.0F)
+                    .sound(SoundType.STONE)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_TABLE_FANCY = registerBlock("mango_table_fancy",
+            () -> new TableBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.6F, 6.0F)
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
@@ -286,7 +298,7 @@ public class ModBlocks {
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
     public static final RegistryObject<Block> MANGO_TABLE = registerBlock("mango_table",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
+            () -> new TableBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.6F, 6.0F)
                     .sound(SoundType.STONE)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
