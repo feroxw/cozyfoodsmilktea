@@ -32,7 +32,7 @@ public class ModItems {
 
      */
     public static final RegistryObject<Item> HONEYDEW_SEEDS = ITEMS.register("honeydew_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.HONEYDEW_CROP.get(), new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
+            () -> new ItemNameBlockItem(ModBlocks.HONEYDEW_CROP, new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
 
     public static final RegistryObject<Item> HONEYDEW_SLICE = ITEMS.register("honeydew_slice",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab).food(Foods.MELON_SLICE)));

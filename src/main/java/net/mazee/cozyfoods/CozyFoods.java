@@ -1,6 +1,7 @@
 package net.mazee.cozyfoods;
 
 import com.mojang.logging.LogUtils;
+import net.fabricmc.api.ModInitializer;
 import net.mazee.cozyfoods.block.ModBlocks;
 import net.mazee.cozyfoods.block.entity.ModBlockEntities;
 import net.mazee.cozyfoods.block.entity.ModEntities;
@@ -29,21 +30,20 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(CozyFoods.MODID)
-public class CozyFoods
+
+public class CozyFoods implements ModInitializer
 {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "cozyfoods";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
 
-    public CozyFoods()
-    {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    @Override
+    public void onInitialize() {
 
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+        ModItems.registerModItems();
+        ModBlocks.registerModBlocks();
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
@@ -57,48 +57,15 @@ public class CozyFoods
         ModMobEffects.register(modEventBus);
         ModLootModifiers.register(modEventBus);
 
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-
-
-        event.enqueueWork(() -> {
-            ModMessages.register();
-            //ModVillagers.registerPOIs();
-        });
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
-    }
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class ClientModEvents
-    {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-
-            MenuScreens.register(ModMenuTypes.SPINNER_MENU.get(), SpinnerScreen::new);
+    /*
+    MenuScreens.register(ModMenuTypes.SPINNER_MENU.get(), SpinnerScreen::new);
 
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.LYCHEE_DOOR.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.LYCHEE_TRAPDOOR.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.MANGO_DOOR.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.MANGO_TRAPDOOR.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.MANGO_CHAIR.get(), RenderType.cutout());
-        }
-    }
+     */
 }

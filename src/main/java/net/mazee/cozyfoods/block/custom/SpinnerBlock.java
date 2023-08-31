@@ -1,5 +1,6 @@
 package net.mazee.cozyfoods.block.custom;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.mazee.cozyfoods.block.entity.ModBlockEntities;
 import net.mazee.cozyfoods.block.entity.SpinnerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -35,7 +36,7 @@ public class SpinnerBlock extends BaseEntityBlock {
     public static final int MAX_LEVEL = 6;
     public static final IntegerProperty LEVEL = BlockStateProperties.LEVEL;
 
-    public SpinnerBlock(Properties pProperties) {
+    public SpinnerBlock(FabricBlockSettings pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(this.getLevelProperty(), Integer.valueOf(0)));
     }

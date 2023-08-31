@@ -1,9 +1,19 @@
 package net.mazee.cozyfoods.block.custom;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.mazee.cozyfoods.item.ModItems;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.CropBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.World;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -14,56 +24,44 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 
 public class SprawlingCropBlock extends CropBlock {
 
-    public SprawlingCropBlock(Properties pProperties) {
+    public SprawlingCropBlock(FabricBlockSettings pProperties) {
         super(pProperties);
     }
 
     @Override
-    protected ItemLike getBaseSeedId() {
-        return ModItems.HONEYDEW_SEEDS.get();
+    protected ItemConvertible getSeedItems() {
+        return ModItems.HONEYDEW_SEEDS;
     }
 
-    @Override
-    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (!pLevel.isAreaLoaded(pPos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-        if (pLevel.getRawBrightness(pPos, 0) >= 9) {
-            int i = this.getAge(pState);
-            if (i < this.getMaxAge()) {
-                float f = getGrowthSpeed(this, pLevel, pPos);
-                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt((int)(25.0F / f) + 1) == 0)) {
-                    pLevel.setBlock(pPos, this.getStateForAge(i + 1), 2);
-                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
-                }
-            }
-        }
-
-    }
 
     @Override
-    public void growCrops(Level pLevel, BlockPos pPos, BlockState pState) {
-        int i = this.getAge(pState) + this.getBonemealAgeIncrease(pLevel);
+    public void applyGrowth(World world, BlockPos pos, BlockState state) {
+        int i = this.getAge(state) + this.getGrowthAmount(world);
         int j = this.getMaxAge();
         if (i > j) {
             i = j;
         }
 
-        pLevel.setBlock(pPos, this.getStateForAge(i), 2);
+        world.setBlockState(pos, this.withAge(i), 2);
 
-        //System.out.println(i);
-        BlockPos posDiagNE = pPos.north(1).east(1);
-        BlockState stateDiagNE = pLevel.getBlockState(posDiagNE);
-        BlockState stateDiagNEBelow = pLevel.getBlockState(posDiagNE.below());
+        BlockPos posDiagNE = pos.north(1).east(1);
+        BlockState stateDiagNE = world.getBlockState(posDiagNE);
+        BlockState stateDiagNEBelow = world.getBlockState(posDiagNE.down());
 
-        boolean isFarmland = stateDiagNEBelow.is(Blocks.FARMLAND);
-        boolean isAir = stateDiagNE.is(Blocks.AIR);
+        boolean isFarmland = stateDiagNEBelow.getBlock() == (Blocks.FARMLAND);
+        boolean isAir = stateDiagNE.isAir();
 
-        //System.out.println("Farmland:" + isFarmland);
-        //System.out.println("Air:" + isAir);
+        System.out.println("Farmland:" + isFarmland);
+        System.out.println("Air:" + isAir);
 
         if(i==j && isFarmland && isAir){
-            pLevel.setBlockAndUpdate(posDiagNE, this.getStateForAge(0));
+            world.setBlockState(posDiagNE, this.withAge(0));
             //System.out.println("New Honeydew");
         }
-        //pLevel.setBlockAndUpdate(posDiagNE, this.getStateForAge(0));
+    }
+
+    @Override
+    protected int getGrowthAmount(World world) {
+        return MathHelper.nextInt(world.random, 2, 5);
     }
 }
