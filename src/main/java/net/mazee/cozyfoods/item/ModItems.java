@@ -24,14 +24,13 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, CozyFoods.MODID);
 
+    public static final RegistryObject<Item> SPOON = ITEMS.register("spoon",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
     /*
-    public static final RegistryObject<Item> LYCHEE_SIGN_ITEM = ITEMS.register("lychee_sign_item",
-            () -> new SignItem(new Item.Properties().stacksTo(16).tab(ModCreativeModeTab.CozyFoodsTab), ModBlocks.LYCHEE_SIGN.get(), ModBlocks.LYCHEE_WALL_SIGN.get()));
-    */
-    /*
-    public static final RegistryObject<Item> LYCHEE_DOOR_ITEM = ITEMS.register("lychee_door_item",
-            () -> new DoubleHighBlockItem(ModBlocks.LYCHEE_DOOR.get(), new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
-    */
+    public static final RegistryObject<Item> PLATE = ITEMS.register("plate",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
+
+     */
     public static final RegistryObject<Item> HONEYDEW_SEEDS = ITEMS.register("honeydew_seeds",
             () -> new ItemNameBlockItem(ModBlocks.HONEYDEW_CROP.get(), new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
 
@@ -50,12 +49,6 @@ public class ModItems {
                             .effect(() -> new MobEffectInstance(MobEffects.POISON, 20*5), 1.0F)
                             .build())));
 
-    public static final RegistryObject<Item> CASSAVA_CAKE = ITEMS.register("cassava_cake",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)
-                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(0.2f)
-                            .effect(() -> new MobEffectInstance(MobEffects.LUCK, 20*300), 1.0F)
-                            .build())));
-
     public static final RegistryObject<Item> TAPIOCA_PEARLS = ITEMS.register("tapioca_pearls",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
 
@@ -68,12 +61,6 @@ public class ModItems {
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(2f).build())));
 
     public static final RegistryObject<Item> MATCHA_POWDER = ITEMS.register("matcha_powder",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
-
-    public static final RegistryObject<Item> SPOON = ITEMS.register("spoon",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
-
-    public static final RegistryObject<Item> PLATE = ITEMS.register("plate",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)));
 
     public static final RegistryObject<Item> LYCHEE_MILK_TEA = ITEMS.register("lychee_milk_tea",
@@ -172,6 +159,12 @@ public class ModItems {
                     .food(new FoodProperties.Builder().nutrition(0).saturationMod(0.0f)
                             .effect(() -> new MobEffectInstance(MobEffects.JUMP, 20*30), 1.0F)
                             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20*30), 1.0F)
+                            .build())));
+
+    public static final RegistryObject<Item> CASSAVA_CAKE = ITEMS.register("cassava_cake",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CozyFoodsTab)
+                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(0.2f)
+                            .effect(() -> new MobEffectInstance(MobEffects.LUCK, 20*300), 1.0F)
                             .build())));
 
     public static final RegistryObject<Item> CAFE_APRON = ITEMS.register("cafe_apron",

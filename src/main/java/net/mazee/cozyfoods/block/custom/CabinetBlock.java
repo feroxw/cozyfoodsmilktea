@@ -70,7 +70,7 @@ public class CabinetBlock extends BaseEntityBlock
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
             BlockEntity tile = level.getBlockEntity(pos);
-            System.out.println(tile);
+            //System.out.println(tile);
             if (tile instanceof CabinetBlockEntity) {
                 System.out.println("cabinet!");
                 player.openMenu((CabinetBlockEntity) tile);

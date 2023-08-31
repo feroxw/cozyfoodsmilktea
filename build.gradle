@@ -9,138 +9,25 @@ buildscript {
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
-    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'fabric-loom' version '1.2-SNAPSHOT'
 }
 
-apply plugin: 'org.spongepowered.mixin'
 
 version = '1.19.2 v1.3'
 group = 'net.mazee.cozyfoods'
-archivesBaseName = 'cozyfoods'
+
+base {
+    archivesName = project.archives_base_name
+}
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
-minecraft {
-    // The mappings can be changed at any time and must be in the following format.
-    // Channel:   Version:
-    // official   MCVersion             Official field/method names from Mojang mapping files
-    // parchment  YYYY.MM.DD-MCVersion  Open community-sourced parameter names and javadocs layered on top of official
-    //
-    // You must be aware of the Mojang license when using the 'official' or 'parchment' mappings.
-    // See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
-    //
-    // Parchment is an unofficial project maintained by ParchmentMC, separate from MinecraftForge
-    // Additional setup is needed to use their mappings: https://github.com/ParchmentMC/Parchment/wiki/Getting-Started
-    //
-    // Use non-default mappings at your own risk. They may not always work.
-    // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'parchment', version: '2022.11.06-1.19.2'
-
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
-
-    // Default run configurations.
-    // These can be tweaked, removed, or duplicated as needed.
-    runs {
-        client {
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a userdev environment
-            // The markers can be added/remove as needed separated by commas.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'cozyfoods'
-
-            mods {
-                cozyfoods {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'cozyfoods'
-
-            mods {
-                cozyfoods {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        // This run config launches GameTestServer and runs all registered gametests, then exits.
-        // By default, the server will crash when no gametests are provided.
-        // The gametest system is also enabled by default for other run configs under the /test command.
-        gameTestServer {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'cozyfoods'
-
-            mods {
-                cozyfoods {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'cozyfoods', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                cozyfoods {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
-}
-/*
-mixin {
-    add sourceSets.main, "mixins.cozyfoods.refmap.json"
-    config "mixins.cozyfoods.json"
-
-    debug.verbose = true
-    debug.export = true
-}*/
-/*
-mixin {
-    add sourceSets.main, "cozyfoods.refmap.json"
-}*/
 
 // Include resources generated by data generators.
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Put repositories for dependencies here
-    // ForgeGradle automatically adds the Forge maven and Maven Central for you
+
     maven { // JEI
         name = "Progwml6 maven"
         url "https://dvs1.progwml6.com/files/maven"
@@ -165,55 +52,41 @@ repositories {
 }
 
 dependencies {
-    // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.19.2-43.1.10'
 
-    // Real mod deobf dependency examples - these get remapped to your current mappings
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
-    // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
-    // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
+    //minecraft 'net.minecraftforge:forge:1.19.2-43.1.10'
+    minecraft "com.mojang:minecraft:${project.mc_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    // Examples using mod jars from ./libs
-    // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
+    // Fabric API. This is technically optional, but you probably want it anyway.
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // compile against the JEI API but do not include it at runtime
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
-    // at runtime, use the full JEI jar for Forge
-    runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
+        // compile against the JEI API but do not include it at runtime
+    modCompileOnlyApi("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
+    modCompileOnlyApi("mezz.jei:jei-${mc_version}-fabric-api:${jei_version}")
+        // at runtime, use the full JEI jar for Fabric
+    modRuntimeOnly("mezz.jei:jei-${mc_version}-fabric:${jei_version}")
 
-    //implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
-    //classpath "org.spongepowered:mixingradle:0.7-SNAPSHOT"
+    modImplementation "curse.maven:farmers-delight-fabric-482834:4712795"
 
-    //398521:3999157
-    //551453:4081312
-    compileOnly fg.deobf("curse.maven:farmers-delight-398521:3999157")
-    runtimeOnly fg.deobf("curse.maven:farmers-delight-398521:3999157")
-
-    compileOnly fg.deobf("curse.maven:farmers-respite-551453:4081312")
-    runtimeOnly fg.deobf("curse.maven:farmers-respite-551453:4081312")
+    modImplementation "curse.maven:farmers-respite-fabric-811003:4713398"
 
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
-    implementation fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
+    modImplementation "curse.maven:pehkui-319596:4684391"
 
-    //implementation fg.deobf("curse.maven:nethers-delight-496394:3971576")
+    modImplementation "curse.maven:geckolib-388172:4711654"
 
-    implementation fg.deobf("curse.maven:geckolib-388172:4181377")
-    //implementation fg.deobf('software.bernie.geckolib:geckolib-1.18-forge:3.0.13')
-
-    implementation fg.deobf("curse.maven:xaeros-world-map-317780:4685552")
-    implementation fg.deobf("curse.maven:xaeros-minimap-263420:4685459")
+    //implementation fg.deobf("curse.maven:xaeros-world-map-317780:4685552")
+    //implementation fg.deobf("curse.maven:xaeros-minimap-263420:4685459")
 
     //implementation fg.deobf("curse.maven:pams-harvestcraft-2-trees-365460:4480280")
 
-    implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
+    //implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
 
-    implementation fg.deobf("curse.maven:better-third-person-435044:4177088")
+    //implementation fg.deobf("curse.maven:better-third-person-435044:4177088")
 
-    implementation fg.deobf("curse.maven:rubidium-574856:4568727")
+    //implementation fg.deobf("curse.maven:rubidium-574856:4568727")
     //implementation fg.deobf("curse.maven:oculus-581495:4299147")
 
 
@@ -222,40 +95,73 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
-// Example for how to get properties into the manifest for reading at runtime.
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "Cozy Foods",
-                "Specification-Vendor"    : "MazeeMods",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "MazeeMods",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
+
+// Add the generated resources to the main source set
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    'src/main/generated'
+            ]
+        }
     }
 }
+dependencies {
+    // To change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${project.mc_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-// Example configuration to allow publishing using the maven-publish plugin
-// This is the preferred method to reobfuscate your jar file
-jar.finalizedBy('reobfJar')
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-// publish.dependsOn('reobfJar')
+    // Fabric API. This is technically optional, but you probably want it anyway.
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
+    // Uncomment the following line to enable the deprecated Fabric API modules.
+    // These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
+
+    // modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    it.options.release = 17
+}
+
+java {
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}"}
+    }
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+        // Notice: This block does NOT have the same function as the block in the top level.
+        // The repositories here will be used for publishing your artifact, not for
+        // retrieving dependencies.
+    }
 }

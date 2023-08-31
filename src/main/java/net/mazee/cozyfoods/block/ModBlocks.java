@@ -35,6 +35,8 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, CozyFoods.MODID);
 
+
+
     public static final RegistryObject<Block> JASMINE = registerBlock("jasmine",
             () -> new FlowerBlock(MobEffects.GLOWING, 5,
                     BlockBehaviour.Properties.copy(Blocks.LILY_OF_THE_VALLEY)), ModCreativeModeTab.CozyFoodsTab);
@@ -42,20 +44,45 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_TARO = BLOCKS.register("wild_taro",
             () -> new FlowerBlock(MobEffects.GLOWING, 5,
                     BlockBehaviour.Properties.copy(Blocks.LILY_OF_THE_VALLEY)));
-    /*
-    public static final RegistryObject<Block> WILD_TARO = BLOCKS.register("wild_taro",
-            () -> new WildRiceBlock(Block.Properties.copy(Blocks.TALL_GRASS)));
-
-     */
 
     public static final RegistryObject<Block> HONEYDEW_CROP = BLOCKS.register("honeydew_crop",
             () -> new SprawlingCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
     public static final RegistryObject<Block> CASSAVA_CROP = BLOCKS.register("cassava_crop",
-            () -> new CropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+            () -> new CassavaCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
     public static final RegistryObject<Block> TARO_CROP = BLOCKS.register("taro_crop",
-            () -> new CropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+            () -> new TaroCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+
+    public static final RegistryObject<Block> SPINNER = registerBlock("spinner",
+            () -> new SpinnerBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(0.5F, 6.0F)
+                    .sound(SoundType.GLASS)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> DECORATIVE_BLENDER = registerBlock("decorative_blender",
+            () -> new DecorativeBlenderBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(0.5F, 6.0F)
+                    .sound(SoundType.GLASS)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MENU_STANDING = registerBlock("menu_standing",
+            () -> new MenuStandBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(0.2F, 6.0F)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MENU_WIDE = registerBlock("menu_wide",
+            () -> new WideBoardBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(0.2F, 6.0F)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> CASH_REGISTER = registerBlock("cash_register",
+            () -> new CashRegisterBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(0.2F, 6.0F)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
     public static final RegistryObject<Block> MANGO_LOG = registerBlock("mango_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), ModCreativeModeTab.CozyFoodsTab);
@@ -152,25 +179,7 @@ public class ModBlocks {
                 }
             }, ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> MANGO_PLANKS = registerBlock("mango_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
-                    .requiresCorrectToolForDrops())
-            {
-                @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction){
-                    return true;
-                }
 
-                @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction){
-                    return 5;
-                }
-
-                @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction){
-                    return 20;
-                }
-            }, ModCreativeModeTab.CozyFoodsTab);
 
     public static final RegistryObject<Block> LYCHEE_PLANKS = registerBlock("lychee_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ModCreativeModeTab.CozyFoodsTab);
@@ -182,13 +191,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> LYCHEE_STAIRS = registerBlock("lychee_stairs",
             () -> new StairBlock(LYCHEE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS))
             , ModCreativeModeTab.CozyFoodsTab);
-    /*
-    public static final RegistryObject<Block> LYCHEE_SIGN = BLOCKS.register("lychee_sign",
-            () -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), WoodType.OAK));
 
-    public static final RegistryObject<Block> LYCHEE_WALL_SIGN = BLOCKS.register("lychee_wall_sign",
-            () -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK));
-    */
     public static final RegistryObject<Block> LYCHEE_PRESSURE_PLATE = registerBlock("lychee_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE))
             , ModCreativeModeTab.CozyFoodsTab);
@@ -207,59 +210,6 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> LYCHEE_TRAPDOOR = registerBlock("lychee_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR)), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> MANGO_SLAB = registerBlock("mango_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.SAND).strength(2.0F, 3.0F).sound(SoundType.WOOD))
-            , ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> MANGO_STAIRS = registerBlock("mango_stairs",
-            () -> new StairBlock(MANGO_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS))
-            , ModCreativeModeTab.CozyFoodsTab);
-
-    /*
-    public static final RegistryObject<Block> MANGO_SIGN = BLOCKS.register("mango_sign",
-            () -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), WoodType.OAK));
-
-    public static final RegistryObject<Block> MANGO_WALL_SIGN = BLOCKS.register("mango_wall_sign",
-            () -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK));
-    */
-    public static final RegistryObject<Block> MANGO_PRESSURE_PLATE = registerBlock("mango_pressure_plate",
-            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE))
-            , ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> MANGO_BUTTON = registerBlock("mango_button",
-            () -> new WoodButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON)), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> MANGO_FENCE = registerBlock("mango_fence",
-            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> MANGO_FENCE_GATE = registerBlock("mango_fence_gate",
-            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE)), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> MANGO_DOOR = registerBlock("mango_door",
-            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR)), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> MANGO_TRAPDOOR = registerBlock("mango_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR)), ModCreativeModeTab.CozyFoodsTab);
-
-
-    public static final RegistryObject<Block> MENU_STANDING = registerBlock("menu_standing",
-            () -> new MenuStandBlock(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(0.2F, 6.0F)
-                    .sound(SoundType.WOOD)
-                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> MENU_WIDE = registerBlock("menu_wide",
-            () -> new WideBoardBlock(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(0.2F, 6.0F)
-                    .sound(SoundType.WOOD)
-                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> CASH_REGISTER = registerBlock("cash_register",
-            () -> new CashRegisterBlock(BlockBehaviour.Properties.of(Material.METAL)
-                    .strength(0.2F, 6.0F)
-                    .sound(SoundType.METAL)
-                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
     public static final RegistryObject<Block> LYCHEE_COUNTER = registerBlock("lychee_counter",
             () -> new HorizontalFacingBlock(BlockBehaviour.Properties.of(Material.WOOD)
@@ -285,14 +235,69 @@ public class ModBlocks {
                     .sound(SoundType.STONE)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> MANGO_TABLE_FANCY = registerBlock("mango_table_fancy",
-            () -> new TableBlock(BlockBehaviour.Properties.of(Material.WOOD)
+    public static final RegistryObject<Block> LYCHEE_CABINET = registerBlock("lychee_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(0.5F, 6.0F)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_PLANKS = registerBlock("mango_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
+                    .requiresCorrectToolForDrops())
+            {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction){
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction){
+                    return 5;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction){
+                    return 20;
+                }
+            }, ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_SLAB = registerBlock("mango_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.SAND).strength(2.0F, 3.0F).sound(SoundType.WOOD))
+            , ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_STAIRS = registerBlock("mango_stairs",
+            () -> new StairBlock(MANGO_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS))
+            , ModCreativeModeTab.CozyFoodsTab);
+
+
+    public static final RegistryObject<Block> MANGO_PRESSURE_PLATE = registerBlock("mango_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE))
+            , ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_BUTTON = registerBlock("mango_button",
+            () -> new WoodButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON)), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_FENCE = registerBlock("mango_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_FENCE_GATE = registerBlock("mango_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE)), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_DOOR = registerBlock("mango_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR)), ModCreativeModeTab.CozyFoodsTab);
+
+    public static final RegistryObject<Block> MANGO_TRAPDOOR = registerBlock("mango_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR)), ModCreativeModeTab.CozyFoodsTab);
+
+
+    public static final RegistryObject<Block> MANGO_COUNTER = registerBlock("mango_counter",
+            () -> new HorizontalFacingBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.6F, 6.0F)
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> MANGO_COUNTER = registerBlock("mango_counter",
-            () -> new HorizontalFacingBlock(BlockBehaviour.Properties.of(Material.WOOD)
+    public static final RegistryObject<Block> MANGO_CHAIR = registerBlock("mango_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.6F, 6.0F)
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
@@ -303,9 +308,9 @@ public class ModBlocks {
                     .sound(SoundType.STONE)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
-    public static final RegistryObject<Block> LYCHEE_CABINET = registerBlock("lychee_cabinet",
-            () -> new CabinetBlock(BlockBehaviour.Properties.of(Material.WOOD)
-                    .strength(0.5F, 6.0F)
+    public static final RegistryObject<Block> MANGO_TABLE_FANCY = registerBlock("mango_table_fancy",
+            () -> new TableBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(0.6F, 6.0F)
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
@@ -315,28 +320,19 @@ public class ModBlocks {
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
+    /*
     public static final RegistryObject<Block> MANGO_SHELF = registerBlock("mango_shelf",
             () -> new HorizontalFacingBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.6F, 6.0F)
                     .sound(SoundType.WOOD)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
+     */
+
     public static final RegistryObject<Block> DISH_RACK = registerBlock("dish_rack",
             () -> new HorizontalFacingBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(0.3F, 6.0F)
                     .sound(SoundType.WOOD)
-                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> SPINNER = registerBlock("spinner",
-            () -> new SpinnerBlock(BlockBehaviour.Properties.of(Material.METAL)
-                    .strength(0.5F, 6.0F)
-                    .sound(SoundType.GLASS)
-                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
-
-    public static final RegistryObject<Block> DECORATIVE_BLENDER = registerBlock("decorative_blender",
-            () -> new DecorativeBlenderBlock(BlockBehaviour.Properties.of(Material.METAL)
-                    .strength(0.5F, 6.0F)
-                    .sound(SoundType.GLASS)
                     .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
 
 

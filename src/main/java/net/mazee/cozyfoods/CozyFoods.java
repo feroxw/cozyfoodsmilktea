@@ -98,6 +98,7 @@ public class CozyFoods
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.LYCHEE_TRAPDOOR.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.MANGO_DOOR.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.MANGO_TRAPDOOR.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.MANGO_CHAIR.get(), RenderType.cutout());
         }
     }
 }
