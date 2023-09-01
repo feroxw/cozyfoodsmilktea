@@ -1,7 +1,6 @@
 package net.mazee.cozyfoods.block.custom;
 
-import net.mazee.cozyfoods.block.entity.ModBlockEntities;
-import net.mazee.cozyfoods.block.entity.SpinnerBlockEntity;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -48,7 +47,7 @@ public class DecorativeBlenderBlock extends Block {
     public static final int MAX_LEVEL = 9;
     public static final IntegerProperty LEVEL = BlockStateProperties.LEVEL;
 
-    public DecorativeBlenderBlock(Properties pProperties) {
+    public DecorativeBlenderBlock(FabricBlockSettings pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(this.getLevelProperty(), Integer.valueOf(0)));
     }

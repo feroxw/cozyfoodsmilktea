@@ -66,19 +66,17 @@ public class ModBlocks {
     public static final Block SPINNER = registerBlock("spinner",
             new SpinnerBlock(FabricBlockSettings.create()
                     .strength(0.5F, 6.0F)
-                    .sounds(BlockSoundGroup.GLASS));
+                    .sounds(BlockSoundGroup.GLASS)));
 
     public static final Block DECORATIVE_BLENDER = registerBlock("decorative_blender",
-            new DecorativeBlenderBlock(BlockBehaviour.Properties.of(Material.METAL)
+            new DecorativeBlenderBlock(FabricBlockSettings.create()
                     .strength(0.5F, 6.0F)
-                    .sounds(SoundType.GLASS)
-                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+                    .sounds(BlockSoundGroup.GLASS)));
 
     public static final Block MENU_STANDING = registerBlock("menu_standing",
-            new MenuStandBlock(BlockBehaviour.Properties.of(Material.WOOD)
+            new MenuStandBlock(FabricBlockSettings.create()
                     .strength(0.2F, 6.0F)
-                    .sound(SoundType.WOOD)
-                    .noOcclusion()), ModCreativeModeTab.CozyFoodsTab);
+                    .sounds(BlockSoundGroup.WOOD)));
 
     public static final Block MENU_WIDE = registerBlock("menu_wide",
             new WideBoardBlock(BlockBehaviour.Properties.of(Material.WOOD)

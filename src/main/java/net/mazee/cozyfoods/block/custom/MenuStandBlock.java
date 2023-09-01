@@ -1,8 +1,13 @@
 package net.mazee.cozyfoods.block.custom;
 
-import net.mazee.cozyfoods.block.ModBlocks;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
@@ -20,10 +25,8 @@ import net.minecraftforge.common.ToolAction;
 
 import javax.annotation.Nullable;
 
-public class MenuStandBlock extends HorizontalDirectionalBlock {
-
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public MenuStandBlock(Properties pProperties){
+public class MenuStandBlock extends HorizontalFacingBlock {
+    public MenuStandBlock(FabricBlockSettings pProperties){
         super(pProperties);
     }
 
@@ -50,13 +53,4 @@ public class MenuStandBlock extends HorizontalDirectionalBlock {
         }
     }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-    }
 }
