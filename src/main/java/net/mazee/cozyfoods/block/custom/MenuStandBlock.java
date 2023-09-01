@@ -4,10 +4,12 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
@@ -26,12 +28,17 @@ import net.minecraftforge.common.ToolAction;
 import javax.annotation.Nullable;
 
 public class MenuStandBlock extends HorizontalFacingBlock {
+
+    protected static final VoxelShape EAST_SHAPE;
+    protected static final VoxelShape WEST_SHAPE;
+    protected static final VoxelShape SOUTH_SHAPE;
+    protected static final VoxelShape NORTH_SHAPE;
     public MenuStandBlock(FabricBlockSettings pProperties){
         super(pProperties);
     }
 
     private static final VoxelShape SHAPE =
-            Block.box(1, 0, 1, 15, 14, 14);
+            Block.createCuboidShape(1, 0, 1, 15, 14, 14);
 
     protected static final VoxelShape NORTH_AABB = Block.box(1, 0, 1, 15, 14, 14);
     protected static final VoxelShape SOUTH_AABB = Block.box(1, 0, 2, 15, 14, 15);
@@ -39,8 +46,8 @@ public class MenuStandBlock extends HorizontalFacingBlock {
     protected static final VoxelShape EAST_AABB = Block.box(2, 0, 1, 15, 14, 15);
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        switch (pState.getValue(FACING)) {
+    public VoxelShape getOutlineShape(BlockState pState, BlockView pLevel, BlockPos pPos, ShapeContext pContext) {
+        switch (pState.get(FACING)) {
             case EAST:
                 return EAST_AABB;
             case WEST:

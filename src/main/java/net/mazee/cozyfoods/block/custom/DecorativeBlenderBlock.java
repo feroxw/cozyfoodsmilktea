@@ -2,6 +2,7 @@ package net.mazee.cozyfoods.block.custom;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.ChatFormatting;
+import net.minecraft.block.Block;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -10,6 +11,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -53,7 +55,6 @@ public class DecorativeBlenderBlock extends Block {
     }
 
     private static final VoxelShape SHAPE =
-            //Block.box(2, 0, 2, 2, 3, 2);
             Block.box(2, 0, 2, 14, 14, 14);
 
     @Override
