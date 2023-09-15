@@ -204,12 +204,12 @@ dependencies {
     implementation fg.deobf("curse.maven:geckolib-388172:4181377")
     //implementation fg.deobf('software.bernie.geckolib:geckolib-1.18-forge:3.0.13')
 
-    implementation fg.deobf("curse.maven:xaeros-world-map-317780:4685552")
-    implementation fg.deobf("curse.maven:xaeros-minimap-263420:4685459")
+    //implementation fg.deobf("curse.maven:xaeros-world-map-317780:4685552")
+    //implementation fg.deobf("curse.maven:xaeros-minimap-263420:4685459")
 
     //implementation fg.deobf("curse.maven:pams-harvestcraft-2-trees-365460:4480280")
 
-    implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
+    //implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
 
     implementation fg.deobf("curse.maven:better-third-person-435044:4177088")
 

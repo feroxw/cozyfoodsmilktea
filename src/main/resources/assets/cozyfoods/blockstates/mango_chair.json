@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "cozyfoods:block/mango_shelf"
+        "model": "cozyfoods:block/mango_chair"
       },
       "when": {
         "facing": "north"
@@ -10,7 +10,7 @@
     },
     {
       "apply": {
-        "model": "cozyfoods:block/mango_shelf", "y": 90
+        "model": "cozyfoods:block/mango_chair", "y": 90
       },
       "when": {
         "facing": "east"
@@ -18,7 +18,7 @@
     },
     {
       "apply": {
-        "model": "cozyfoods:block/mango_shelf", "y": 180
+        "model": "cozyfoods:block/mango_chair", "y": 180
       },
       "when": {
         "facing": "south"
@@ -26,7 +26,7 @@
     },
     {
       "apply": {
-        "model": "cozyfoods:block/mango_shelf", "y": 270
+        "model": "cozyfoods:block/mango_chair", "y": 270
       },
       "when": {
         "facing": "west"
