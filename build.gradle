@@ -211,9 +211,9 @@ dependencies {
 
     //implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
 
-    implementation fg.deobf("curse.maven:better-third-person-435044:4177088")
+    //implementation fg.deobf("curse.maven:better-third-person-435044:4177088")
 
-    implementation fg.deobf("curse.maven:rubidium-574856:4568727")
+    //implementation fg.deobf("curse.maven:rubidium-574856:4568727")
     //implementation fg.deobf("curse.maven:oculus-581495:4299147")
 
 
